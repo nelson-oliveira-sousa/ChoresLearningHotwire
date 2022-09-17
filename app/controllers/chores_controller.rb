@@ -8,6 +8,10 @@ class ChoresController < ApplicationController
     @chore = Chore.new
   end
 
+  def new
+    @chore = Chore.new
+  end
+
   def create
     @chore = Chore.new(chore_params)
 
