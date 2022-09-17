@@ -1,0 +1,2 @@
+<%= turbo_stream.append "chores", partial: "chores/chore", locals: { chore: @chore } %>
+<%= turbo_stream.replace "chore_form", partial: "chores/form", locals: { chore: Chore.new } %>
