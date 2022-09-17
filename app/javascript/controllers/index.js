@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import ChoreModalController from "./chore_modal_controller"
+application.register("chore-modal", ChoreModalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

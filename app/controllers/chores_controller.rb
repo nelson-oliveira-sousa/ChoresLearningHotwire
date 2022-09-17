@@ -12,6 +12,21 @@ class ChoresController < ApplicationController
     @chore = Chore.new
   end
 
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @chore.update(chore_params)
+        format.html { redirect_to @chore, notice: "Chore was successfully updated." }
+        format.json { render :show, status: :ok, location: @chore }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @chore.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @chore = Chore.new(chore_params)
 
