@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: chores-db
+    volumes:
+      - ./tmp/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+
+  redis:
+    image: redis:6-alpine
+    container_name: chores-redis
+    volumes:
+      - redis-data:/var/lib/redis/data
+    ports:
+      - "127.0.0.1:6379:6379"
+    restart: on-failure
+    logging:
+      driver: none
+
+volumes:
+  db:
+  redis-data:
